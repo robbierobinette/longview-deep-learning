@@ -84,6 +84,10 @@ def main():
         # this loop runs one game.  At the end of the game the step function returns done=True
         while not done:
             steps += 1.0
+
+            # uncomment this line to watch the pong games play as it learns.  This will slow things down, a lot.
+            # p.render()
+
             # if we have loaded a saved model or if we have begun training then we can use the model to choose
             # an action.  Otherwise, pick one at random.
             if from_saved_model or policy_optimizer.ready():
