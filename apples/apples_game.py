@@ -181,7 +181,16 @@ class ApplesGame():
 
     def auto_step(self):
         state = self.sensor.as_input()
-        action, next_state = self.policy.get_action(state)
+
+        # the policy used to return a random action if it was not ready but that
+        # does not work well when recovering from a saved game.
+        if self.policy.ready():
+            action, next_state = self.policy.get_action(state)
+        else:
+            # randint() is *totally* broken.  things like this should return an element
+            # where min <= x < max, i.e. in the range [min, max) not [min, max].  blech.
+            action, next_state = random.randint(0, self.n_actions - 1), []
+
         self.next_state = next_state
 
         reward = self.take_action(action)

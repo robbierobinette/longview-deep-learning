@@ -62,7 +62,7 @@ class InteractiveApplesGame(a.Window):
         if key == a.key.F:
             game.speed += 1
         if key == a.key.S:
-            game.speed = max(1, game.speed - 1)
+            game.speed = 1
         if key == a.key.Q:
             game.speed = 16
             game.auto = True
