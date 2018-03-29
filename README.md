@@ -6,6 +6,9 @@
 # you want or you can follow the instructions below for installing python via homebrew.
 # I don't have a blank machine to test this on but it will probably work.  :)
 # you can simply type "bash README.md" as this README is also a bash script.
+#
+# This may take a while as it will have to download and install Xcode if it is not already
+# installed on your machine. 
 
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -15,6 +18,7 @@ echo "this should show python 3.6.4 or later"
 python --version
 echo
 echo
+brew install cmake
 pip3 install virtualenv
 virt_dir=~/virtualenvs/tf_dev
 virtualenv -p /usr/bin/python3.6 $virt_dir
